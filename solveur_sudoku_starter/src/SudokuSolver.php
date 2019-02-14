@@ -2,5 +2,8 @@
 
 class SudokuSolver implements SolverInterface
 {
-    /* Insérer le code ici */
+    public static function solve(SudokuGrid $grid, int $rowIndex, int $columnIndex): ?SudokuGrid
+    {
+        return null;
+    }
 }
