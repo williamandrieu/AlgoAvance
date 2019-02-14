@@ -12,7 +12,7 @@ interface GridInterface {
      * Instancie une grille à partir d'un tableau de données
      * @param array $data Tableau de données
      */
-    public function __construct(array $data);
+    public function __construct(array $data,string $dataString);
 
     /**
      * Retourne la valeur d'une cellule
