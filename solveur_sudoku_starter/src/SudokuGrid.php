@@ -14,6 +14,7 @@ class SudokuGrid implements GridInterface
     {
         $this->data = $data;
         $this->display = $dataString;
+        print_r($this->square(8));
     }
 
     public function get(int $rowIndex, int $columnIndex): int
@@ -43,13 +44,23 @@ class SudokuGrid implements GridInterface
 
     public function square(int $squareIndex): array
     {
-    	return null;
+        $squareTab;
+        for ($j=0; $j < count($this->data); $j+=3) {
+
+            for ($i=0; $i < count($this->data[$j]); $i+=3)
+            { 
+                $a=  array_slice($this->data[$j], $i,3);
+                $b= array_slice($this->data[$j+1], $i,3) ;
+                $c=array_slice($this->data[$j+2], $i,3) ;
+                $squareTab[]= array_merge($a,$b,$c);
+            }
+        }
+
+    	return $squareTab[$squareIndex];
     }
 
-    
     public function display(): string
     {
-        
     	return $this->display;
 
     }
@@ -76,5 +87,10 @@ class SudokuGrid implements GridInterface
     public function isFilled(): bool
     {
     	return null;
+    }
+
+    public function createSquare($data)
+    {
+        
     }
 }
