@@ -29,13 +29,16 @@ class SudokuGrid implements GridInterface
 
     public function row(int $rowIndex): array
     {
-    	return null;
+    	return $data[$rowIndex];
     }
 
     
     public function column(int $columnIndex): array
     {
-    	return $array= [0];
+        for ($i=0; $i < count($data); $i++) { 
+            $column[$i] = $data[$i][$columnIndex]; 
+        }
+    	return $column;
     }
 
     public function square(int $squareIndex): array
@@ -46,7 +49,9 @@ class SudokuGrid implements GridInterface
     
     public function display(): string
     {
+        
     	return $this->display;
+
     }
 
     
